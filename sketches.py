@@ -63,7 +63,11 @@ class F0_estimate():
 
     def hash(self, token, seed):
         max_32_int = pow(2,32)-1
-        return mmh3.hash(token.to_bytes(5, 'big'), seed, signed = False)/max_32_int
+        if type(token) == int:
+            return mmh3.hash(token.to_bytes(5, 'big'), seed, signed = False)/max_32_int
+        else:
+            return mmh3.hash(token, seed, signed = False)/max_32_int
+
 
     def insert(self, token):
         for i in range(self.r):
@@ -71,6 +75,7 @@ class F0_estimate():
                 hash_value = self.hash(token, self.seed[i][j])
                 if hash_value < self.smallest_hash[i][j]:
                     self.smallest_hash[i][j] = hash_value
+
 
 
     # return the estimate for the number of distinct elements inserted so far
