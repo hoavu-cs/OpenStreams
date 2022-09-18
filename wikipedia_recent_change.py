@@ -79,7 +79,7 @@ def frequently_edited_articles(num_counters = 100, time_window = 5, delay = 5, n
         for item in rc:
             mg.insert(item["title"])
 
-        top_buckets = mg.top_buckets(num_buckets_to_report)
+        top_buckets = mg.top_counters(num_buckets_to_report)
 
         for y in top_buckets:
             print(f"Article: {y}, (est: {top_buckets[y]})")
