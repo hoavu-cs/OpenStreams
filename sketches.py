@@ -23,7 +23,7 @@ class Misra_Gries:
                         del self.buckets[y]
 
     # return the buckets of top counts
-    # 
+    # top counts are likely to be heavy hitters
     def top_buckets(self, amount):
         sorted_freq = sorted(self.buckets, key=self.buckets.get, reverse=True)
 
