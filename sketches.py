@@ -40,6 +40,7 @@ class Misra_Gries:
 
 
 
+# estimate the number of distinct elements
 class F0_estimate():
 
     # initialize
@@ -72,7 +73,8 @@ class F0_estimate():
                     self.smallest_hash[i][j] = hash_value
 
 
+    # return the estimate for the number of distinct elements inserted so far
     def estimator(self):
         avg = [statistics.mean(self.smallest_hash[i]) for i in range(self.r)]
         median_of_means = statistics.median(avg)
-        return math.ceil((1/median_of_means) - 1)
+        return math.ceil((1/median_of_means)-1)
