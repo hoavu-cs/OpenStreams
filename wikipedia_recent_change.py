@@ -11,7 +11,7 @@ class WikiEventStreamer:
     def __init__(self):
         self.mg_title = sketches.Misra_Gries(100)
         self.mg_topic = sketches.Misra_Gries(100)
-        self.s3 = boto3.client('s3', aws_access_key_id = 'AKIARNSJLSMP7ZD5FAYT', aws_secret_access_key = "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")
+        self.s3 = boto3.client('s3', aws_access_key_id = 'AKIARNSJLSMP7MTUJYKA', aws_secret_access_key = "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")
 
 
 
@@ -45,7 +45,7 @@ class WikiEventStreamer:
 
                         counter += 1
 
-                    if counter == 1000:
+                    if counter == 10:
                         frequent_title = self.mg_title.top_counters(100)
                         frequent_topic = self.mg_topic.top_counters(100)
                         self.s3.put_object(Body=json.dumps(frequent_title), Bucket='sketch-db', Key='wiki-title-hh.json')
