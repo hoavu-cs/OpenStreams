@@ -40,8 +40,11 @@ def get_edits(num_of_edits):
     return recent_changes
 
 
-# remove any article in X with revision id
-# less than or equal to max revision id in Y
+"""
+remove any article in X with revision id
+less than or equal to max revision id in Y
+"""
+ 
 def remove_duplicate_edits(X, Y):
 
     max_X_revid = 0
